@@ -35,7 +35,15 @@ const onRefresh = () => {
     tableRef.value?.refresh();
 }
 
-
+const editPersonType= (personType: Partial<{
+    id: number;
+    code: string;
+    name: string;
+    description: string;
+}>) => {
+    openUpdateModal.value = true;
+    selectedPersonType.value = personType as PersonType;
+}
 
 </script>
 
@@ -63,11 +71,16 @@ const onRefresh = () => {
         >
             <template #actions-cell="{ row }">
                 <div class="flex items-center justify-center space-x-2">
+                    <UButton size="md" color="info" variant="outline" @click="editPersonType(row.original)">
+                        <UIcon name="i-heroicons-pencil-square" class="mr-1" />
+                        {{ $t('catalogs.personType.table.columns.edit') }}
+                    </UButton>
                     <ProductsDelete :item="row.original" @onConfirm="onRefresh"/>
                 </div>
             </template>
 
         </ServerSideTable>
        <CatalogsPersonTypeCreate :open="openCreateModal" @close="openCreateModal = false" @created="onRefresh"/>
+       <CatalogsPersonTypeUpdate :open="openUpdateModal" :person-type="selectedPersonType" @close="openUpdateModal = false" @updated="onRefresh"/>
     </div>
 </template>
