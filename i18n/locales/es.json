@@ -9,7 +9,8 @@
     "products": "Productos",
     "faqs": "Preguntas Frecuentes",
     "chat": "Probar Chat",
-    "orders": "Órdenes"
+    "orders": "Órdenes",
+    "catalogs": "Catálogos"
   },
   "dashboard": {
     "title": "Dashboard",
@@ -75,6 +76,62 @@
     "delete": "Eliminar",
     "confirmDelete": "Confirmar eliminación",
     "confirmDeleteDescription": "¿Estás seguro de que deseas eliminar este elemento? Esta acción no se puede deshacer."
+  },
+  "catalogs":{
+    "personType":{
+      "title": "Tipos de Persona",
+      "welcome": "Gestiona los tipos de persona aquí",
+      "addNew": "Agregar nuevo tipo de persona",
+      "edit": "Editar tipo de persona",
+      "delete": "Eliminar tipo de persona",
+      "name": "Nombre del tipo de persona",
+      "description": "Descripción",
+      "status": "Estado",
+      "actions": "Acciones",
+      "noPersonTypes": "No hay tipos de persona disponibles.",
+      "table": {
+        "columns": {
+          "id": "ID",
+          "code": "Código",
+          "name": "Nombre",
+          "description": "Descripción",
+          "status": "Estado",
+          "actions": "Acciones",
+          "edit": "Editar",
+          "delete": "Eliminar"
+        }
+      },
+      "form": {
+        "create": {
+          "title": "Crear nuevo tipo de persona",
+          "submit": "Crear tipo de persona"
+        },
+        "edit": {
+          "title": "Editar tipo de persona",
+          "submit": "Actualizar tipo de persona"
+        },
+        "code": "Código",
+        "code_placeholder": "Ingresa el código",
+        "name": "Nombre del tipo de persona",
+        "name_placeholder": "Ingresa el nombre del tipo de persona",
+        "description": "Descripción",
+        "description_placeholder": "Ingresa la descripción",
+        "status": "Estado",
+        "status_active": "Activo",
+        "status_inactive": "Inactivo"
+      },
+      "errors": {
+        "fetchFailed": "Error al obtener los tipos de persona. Por favor, inténtalo de nuevo más tarde.",
+        "createFailed": "Error al crear el tipo de persona. Por favor, inténtalo de nuevo.",
+        "updateFailed": "Error al actualizar el tipo de persona. Por favor, inténtalo de nuevo.",
+        "deleteFailed": "Error al eliminar el tipo de persona. Por favor, inténtalo de nuevo."
+      },
+      "messages": {
+        "createSuccess": "Tipo de persona creado exitosamente.",
+        "updateSuccess": "Tipo de persona actualizado exitosamente.",
+        "deleteSuccess": "Tipo de persona eliminado exitosamente."
+      }
+    }
   },
   "products": {
     "title": "Productos",
