@@ -94,19 +94,19 @@ const resetForm = () => {
                 class="space-y-6"
             >
             
-                <UFormField :label="$t('catalogs.personType.form.code')" name="code" class="space-y-2 w-full">
+                <UFormField :label="$t('catalogs.personType.form.code') + ' *'" name="code" class="space-y-2 w-full">
                     <UInput
                         v-model="personType.code"
-                        :label="$t('catalogs.personType.form.code')"
+                        :label="$t('catalogs.personType.form.code') + ' *'"
                         :placeholder="$t('catalogs.personType.form.code_placeholder')"
                         class="w-full"
                     />
                 </UFormField>
 
-                <UFormField :label="$t('catalogs.personType.form.name')" name="name" class="space-y-2 w-full">
+                <UFormField :label="$t('catalogs.personType.form.name') + ' *'" name="name" class="space-y-2 w-full">
                     <UInput
                         v-model="personType.name"
-                        :label="$t('catalogs.personType.form.name')"
+                        :label="$t('catalogs.personType.form.name') + ' *'"
                         :placeholder="$t('catalogs.personType.form.name_placeholder')"
                         class="w-full"
                     />
