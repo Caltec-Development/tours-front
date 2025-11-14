@@ -5,7 +5,8 @@
     "projects": "Projects",
     "team": "Team",
     "settings": "Settings",
-    "help": "Help"
+    "help": "Help",
+    "catalogs": "Catalogs"
   },
   "dashboard": {
     "title": "Dashboard",
@@ -62,5 +63,61 @@
     "search": "Search",
     "notifications": "Notifications",
     "language": "Language"
+  },
+  "catalogs": {
+    "personTypes": {
+      "title": "Person Types",
+      "welcome": "Manage person types here",
+      "addNew": "Add new person type",
+      "edit": "Edit person type",
+      "delete": "Delete person type",
+      "name": "Person type name",
+      "description": "Description",
+      "status": "Status",
+      "actions": "Actions",
+      "noPersonTypes": "No person types available.",
+      "table": {
+        "columns": {
+          "id": "ID",
+          "code": "Code",
+          "name": "Name",
+          "description": "Description",
+          "status": "Status",
+          "actions": "Actions",
+          "edit": "Edit",
+          "delete": "Delete"
+        }
+      },
+      "form": {
+        "create": {
+          "title": "Create new person type",
+          "submit": "Create person type"
+        },
+        "edit": {
+          "title": "Edit person type",
+          "submit": "Update person type"
+        },
+        "code": "Code",
+        "code_placeholder": "Enter code",
+        "name": "Person type name",
+        "name_placeholder": "Enter person type name",
+        "description": "Description",
+        "description_placeholder": "Enter description",
+        "status": "Status",
+        "status_active": "Active",
+        "status_inactive": "Inactive"
+      },
+      "errors": {
+        "fetchFailed": "Error fetching person types. Please try again later.",
+        "createFailed": "Error creating person type. Please try again.",
+        "updateFailed": "Error updating person type. Please try again.",
+        "deleteFailed": "Error deleting person type. Please try again."
+      },
+      "messages": {
+        "createSuccess": "Person type created successfully.",
+        "updateSuccess": "Person type updated successfully.",
+        "deleteSuccess": "Person type deleted successfully."
+      }
+    }
   }
 }
