@@ -68,5 +68,6 @@ const onRefresh = () => {
             </template>
 
         </ServerSideTable>
+       <CatalogsPersonTypeCreate :open="openCreateModal" @close="openCreateModal = false" @created="onRefresh"/>
     </div>
 </template>
