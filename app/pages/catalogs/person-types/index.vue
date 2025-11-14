@@ -3,6 +3,8 @@ import type { TableColumn } from '@nuxt/ui';
 import type { PersonType } from '~/interfaces/person-type';
 
 const openCreateModal = ref<boolean>(false);
+const openUpdateModal = ref<boolean>(false);
+const selectedPersonType = ref<PersonType | null>(null);
 
 const columns: TableColumn<PersonType>[] = [
     {
@@ -25,6 +27,13 @@ const columns: TableColumn<PersonType>[] = [
 ];
 
 const tableRef = ref<InstanceType<typeof import('~/components/ServerSideTable.vue').default> | null>(null);
+
+const onRefresh = () => {
+    openCreateModal.value = false;
+    openUpdateModal.value = false;
+    selectedPersonType.value = null;
+    tableRef.value?.refresh();
+}
 
 
 
@@ -53,8 +62,12 @@ const tableRef = ref<InstanceType<typeof import('~/components/ServerSideTable.vu
             url="/api/catalogs/person-type"
         >
             <template #actions-cell="{ row }">
+                <div class="flex items-center justify-center space-x-2">
+                    <ProductsDelete :item="row.original" @onConfirm="onRefresh"/>
+                </div>
             </template>
 
         </ServerSideTable>
+       <CatalogsPersonTypeCreate :open="openCreateModal" @close="openCreateModal = false" @created="onRefresh"/>
     </div>
 </template>
