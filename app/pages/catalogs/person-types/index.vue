@@ -20,6 +20,10 @@ const columns: TableColumn<PersonType>[] = [
         header: $t('catalogs.personType.table.columns.name'),
     },
     {
+        accessorKey: 'status',
+        header: $t('catalogs.personType.table.columns.status'),
+    },
+    {
         accessorKey: 'actions',
         header: $t('products.table.columns.actions'),
     }
@@ -40,6 +44,7 @@ const editPersonType= (personType: Partial<{
     code: string;
     name: string;
     description: string;
+    status: boolean;
 }>) => {
     openUpdateModal.value = true;
     selectedPersonType.value = personType as PersonType;
@@ -69,13 +74,18 @@ const editPersonType= (personType: Partial<{
             :initialPageSize="100"
             url="/api/catalogs/person-type"
         >
+            <template #status-cell="{ row }">
+                <span v-if="row.original.status" class="text-green-600 font-medium">{{ $t('common.active') }}</span>
+                <span v-else class="text-red-600 font-medium">{{ $t('common.inactive') }}</span>
+            </template>
+
             <template #actions-cell="{ row }">
                 <div class="flex items-center justify-center space-x-2">
                     <UButton size="md" color="info" variant="outline" @click="editPersonType(row.original)">
                         <UIcon name="i-heroicons-pencil-square" class="mr-1" />
                         {{ $t('catalogs.personType.table.columns.edit') }}
                     </UButton>
-                    <ProductsDelete :item="row.original" @onConfirm="onRefresh"/>
+                    <CatalogsPersonTypeDelete :item="row.original" @onConfirm="onRefresh"/>
                 </div>
             </template>
 

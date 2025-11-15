@@ -19,7 +19,8 @@ const toast = useToast();
 const schema = z.object({
     code: z.string().length(2),
     name: z.string().min(3).max(255),
-    description: z.string().min(5).optional(),
+    description: z.union([z.literal(""), z.string().min(5)]).optional(),
+    status: z.boolean(),
 });         
 
 
@@ -29,6 +30,7 @@ const personType = reactive<Schema>({
     code: props.personType?.code || '',
     name: props.personType?.name || '',
     description: props.personType?.description || '',
+    status: props.personType?.status || true
 });         
 
 watch(() => props.open, (newVal) => {
@@ -39,6 +41,7 @@ watch(() => props.personType, (newPersonType) => {
     personType.code = newPersonType?.code || '';
     personType.name = newPersonType?.name || '';
     personType.description = newPersonType?.description || '';
+    personType.status = newPersonType?.status || true;
 });         
 
 
@@ -118,6 +121,12 @@ const close = () => {
                         :placeholder="$t('catalogs.personType.form.description_placeholder')"
                         class="w-full"
                         :rows="4"
+                    />
+                </UFormField>
+                <UFormField :label="$t('catalogs.personType.form.status')" name="status" class="space-y-2 w-full">
+                    <USwitch
+                        v-model="personType.status"
+                        class="w-full"
                     />
                 </UFormField>
             </UForm>

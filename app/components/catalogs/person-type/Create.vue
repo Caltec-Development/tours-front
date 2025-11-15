@@ -17,7 +17,8 @@ const toast = useToast();
 const schema = z.object({
     code: z.string().length(2),
     name: z.string().min(3).max(255),
-    description: z.string().min(5).optional(),
+    description: z.union([z.literal(""), z.string().min(5)]).optional(),
+    status: z.boolean(),
 })
 
 type Schema = z.infer<typeof schema>
@@ -26,6 +27,7 @@ const personType = reactive<Schema>({
     code: '',
     name: '',
     description: '',
+    status: true,
 })
 
 
@@ -52,10 +54,10 @@ const onSubmit = async (event: FormSubmitEvent<Schema>) => {
 
         resetForm();
 
-    } catch (error) {
+    } catch (error: any) {
         toast.add({
             title: $t('common.error'),
-            description: $t('catalogs.personType.errors.createFailed'),
+            description:  error.statusText || $t('catalogs.personType.errors.createFailed'),
             icon: 'i-heroicons-x-circle',
             color: 'error',
         });
@@ -72,6 +74,7 @@ const resetForm = () => {
     personType.code = '';
     personType.name = '';
     personType.description = '';
+    personType.status = true;
 }
 
 
@@ -120,6 +123,12 @@ const resetForm = () => {
                         :placeholder="$t('catalogs.personType.form.description_placeholder')"
                         class="w-full"
                         :rows="4"
+                    />
+                </UFormField>
+                <UFormField :label="$t('catalogs.personType.form.status')" name="status" class="space-y-2 w-full">
+                    <USwitch
+                        v-model="personType.status"
+                        class="w-full"
                     />
                 </UFormField>
             </UForm>

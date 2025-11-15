@@ -2,7 +2,7 @@ import { H3Event } from 'h3';
 
 export default defineEventHandler(async (event: H3Event) => {
   try {
-    const data: any = await fetchWithAuth(event, `/catalogs/person-type`, {
+    const data: any = await fetchWithAuth(event, `/catalogs/person-types`, {
       method: 'POST',
       body: await readBody(event)
     });
@@ -10,6 +10,9 @@ export default defineEventHandler(async (event: H3Event) => {
   } catch (error: any) {
     if (error.response?.status === 401) {
       return createError({ statusCode: 401, statusMessage: 'Unauthorized' });
+    }
+    if(error.response?.status === 422){
+      return createError({ statusCode: 422, statusMessage: error.data?.message || 'Unprocessable Entity' });
     }
     throw createError({ statusCode: error.response?.status || 500, statusMessage: error.response?.detail || 'Internal Server Error' });
   }

@@ -75,7 +75,9 @@
     "noData": "No hay datos disponibles",
     "delete": "Eliminar",
     "confirmDelete": "Confirmar eliminación",
-    "confirmDeleteDescription": "¿Estás seguro de que deseas eliminar este elemento? Esta acción no se puede deshacer."
+    "confirmDeleteDescription": "¿Estás seguro de que deseas eliminar este elemento? Esta acción no se puede deshacer.",
+    "active": "Activo",
+    "inactive": "Inactivo"
   },
   "catalogs":{
     "personType":{

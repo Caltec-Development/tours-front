@@ -62,7 +62,9 @@
   "common": {
     "search": "Search",
     "notifications": "Notifications",
-    "language": "Language"
+    "language": "Language",
+    "active": "Active",
+    "inactive": "Inactive"
   },
   "catalogs": {
     "personTypes": {
