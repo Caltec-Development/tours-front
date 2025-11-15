@@ -54,6 +54,11 @@ const routes: Route[] = [
     path: '/chat',
     name: $t('nav.chat'),
     icon: 'i-heroicons-chat-bubble-left-right'
+  },
+  {
+    path: '/catalogs',
+    name: $t('nav.catalogs'),
+    icon: 'i-heroicons-rectangle-stack'
   }
 ]
 
